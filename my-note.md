@@ -5,5 +5,6 @@
 
 ## dev_lf 分支所做的修改
 - 修复 mac m1 上 模型val时候存在的 autocast 的bug
+  参考的修复 https://github.com/open-mmlab/mmengine/pull/587/files
 
 
