@@ -122,8 +122,15 @@ def autocast(device_type: Optional[str] = None,
                 'In CPU autocast, only support `torch.bfloat16` dtype')
 
         else:
-            raise ValueError('User specified autocast device_type must be '
-                             F'cuda or cpu, but got {device_type}')
+            # Device like MPS does not support fp16 training or testing.
+            # If an inappropriate device is set and fp16 is enabled, an error
+            # will be thrown.
+            if enabled is False: # mac下的val bug 修复成功 nice
+                yield
+                return
+            else:
+                raise ValueError('User specified autocast device_type must be '
+                                 f'cuda or cpu, but got {device_type}')
 
         with torch.autocast(
                 device_type=device_type,

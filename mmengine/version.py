@@ -1,6 +1,8 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 
-__version__ = '0.2.0'
+# __version__ = '0.2.0'
+# 自己修改的工程分支上，调整下版本号，避免覆盖影响到官方版本，（与官方版本进行区分）
+__version__ = '0.2.0.1'
 
 
 def parse_version_info(version_str):
